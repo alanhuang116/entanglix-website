@@ -148,7 +148,8 @@ const EMBERS = Array.from({ length: 16 }, (_, i) => ({
   r: 1 + ((i * 7) % 3) * 0.5,
 }));
 
-export function WildfireVisual() {
+/** `interactive={false}` drops the controls, for the compact preview in the hero. */
+export function WildfireVisual({ interactive = true }: { interactive?: boolean }) {
   const uid = useId().replace(/:/g, "");
   const [slider, setSlider] = useState(30);
   const [spacing, setSpacing] = useState<Spacing>("Suburban");
@@ -254,6 +255,7 @@ export function WildfireVisual() {
         <circle cx={mx} cy={my} r="4.5" fill="#fff" stroke={EMBER} strokeWidth="2.5" />
       </svg>
 
+      {interactive && (
       <div className="px-4 sm:px-5 pb-3 space-y-3">
         <div className="flex items-center gap-4">
           <label htmlFor={`wf-fire-${uid}`} className="text-[10px] font-mono uppercase tracking-widest text-ink-3">Fire</label>
@@ -278,6 +280,7 @@ export function WildfireVisual() {
           <span className="ml-auto"><Segmented value={spacing} options={SPACINGS} onChange={setSpacing} label="Spacing to neighbouring structures" /></span>
         </div>
       </div>
+      )}
 
       <Readouts
         cells={[
@@ -325,7 +328,7 @@ const STREAKS = [0, 540].flatMap((shift) =>
   })),
 );
 
-export function HurricaneVisual() {
+export function HurricaneVisual({ interactive = true }: { interactive?: boolean }) {
   const uid = useId().replace(/:/g, "");
   const [mph, setMph] = useState(145);
   const [construction, setConstruction] = useState<Construction>("wood");
@@ -426,6 +429,7 @@ export function HurricaneVisual() {
         <circle cx={mx} cy={r1(yOf(here.des))} r="3.5" fill="#fff" stroke={ROSE} strokeWidth="2.2" />
       </svg>
 
+      {interactive && (
       <div className="px-4 sm:px-5 pb-3 space-y-3">
         <div className="flex items-center gap-4">
           <label htmlFor={`hu-wind-${uid}`} className="text-[10px] font-mono uppercase tracking-widest text-ink-3">Wind</label>
@@ -450,6 +454,7 @@ export function HurricaneVisual() {
           </span>
         </div>
       </div>
+      )}
 
       <Readouts
         cells={[

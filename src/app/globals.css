@@ -202,6 +202,10 @@ body {
 .floaty { animation: floaty 7s ease-in-out infinite; }
 .floaty-2 { animation: floaty 9s ease-in-out -3s infinite; }
 
+/* ── Hero carousel: the bar that times the auto-advance ── */
+@keyframes dwell { from { width: 0; } to { width: 100%; } }
+.dwell { animation: dwell 4.6s linear forwards; }
+
 /* ── Hazard previews: embers and wind streaks ── */
 @keyframes ember-rise {
   0% { transform: translate(0, 0); opacity: 0; }
