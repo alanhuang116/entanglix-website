@@ -168,6 +168,8 @@ export default function Contact() {
                             <option>General enquiry</option>
                             <option>Research Architect</option>
                             <option>FloodVuln Global</option>
+                            <option>WildfireVuln</option>
+                            <option>HurricaneVuln</option>
                             <option>GH-PM25 Observatory</option>
                             <option>Custom data service or agent</option>
                           </select>

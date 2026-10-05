@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Entanglix | Data-driven SaaS, data services & AI agents",
   description:
-    "Entanglix builds data-driven SaaS products and AI agents: Research Architect for hypothesis framing, FloodVuln Global for flood vulnerability in banking and insurance, and the GH-PM25 Observatory for daily 1-km air quality in Ghana.",
+    "Entanglix builds data-driven SaaS products and AI agents: Research Architect for hypothesis framing, FloodVuln, WildfireVuln and HurricaneVuln for climate-risk vulnerability in banking and insurance, and the GH-PM25 Observatory for daily 1-km air quality in Ghana.",
   keywords: [
     "SaaS",
     "Data services",
@@ -23,6 +23,8 @@ export const metadata: Metadata = {
     "Research Architect",
     "FloodVuln Global",
     "Flood vulnerability",
+    "WildfireVuln",
+    "HurricaneVuln",
     "Climate risk",
     "Air quality",
     "PM2.5",

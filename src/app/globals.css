@@ -14,6 +14,8 @@
   --research: #8b7bff;
   --flood: #2dd4bf;
   --air: #ffb340;
+  --wildfire: #ff6a3d;
+  --hurricane: #5aa9ff;
 }
 
 @theme inline {
@@ -200,7 +202,17 @@ body {
 .floaty { animation: floaty 7s ease-in-out infinite; }
 .floaty-2 { animation: floaty 9s ease-in-out -3s infinite; }
 
-/* ── Range input (FloodVuln preview) ── */
+/* ── Hazard previews: embers and wind streaks ── */
+@keyframes ember-rise {
+  0% { transform: translate(0, 0); opacity: 0; }
+  12% { opacity: 1; }
+  100% { transform: translate(var(--dx, 0px), -78px); opacity: 0; }
+}
+.ember { animation: ember-rise 3s ease-out infinite; }
+@keyframes streak { to { transform: translateX(-540px); } }
+.streak { animation: streak 2s linear infinite; }
+
+/* ── Range input (hazard previews) ── */
 .range {
   -webkit-appearance: none;
   appearance: none;
@@ -215,12 +227,12 @@ body {
   -webkit-appearance: none;
   width: 18px; height: 18px; margin-top: -7px; border-radius: 50%;
   background: linear-gradient(180deg, #fff, #cfd3d8);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 0 4px rgba(45, 212, 191, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 0 4px color-mix(in srgb, var(--accent, #2dd4bf) 28%, transparent);
 }
 .range::-moz-range-thumb {
   width: 18px; height: 18px; border: none; border-radius: 50%;
   background: linear-gradient(180deg, #fff, #cfd3d8);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 0 4px rgba(45, 212, 191, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 0 4px color-mix(in srgb, var(--accent, #2dd4bf) 28%, transparent);
 }
 
 /* ── Isometric stack (Platform) ── */
@@ -239,5 +251,5 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .edge-flow, .wave, .wave-slow, .breathe, .floaty, .floaty-2, .animate-drift, .animate-drift-slow { animation: none; }
+  .edge-flow, .wave, .wave-slow, .ember, .streak, .breathe, .floaty, .floaty-2, .animate-drift, .animate-drift-slow { animation: none; }
 }

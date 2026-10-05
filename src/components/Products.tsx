@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import Reveal from "./Reveal";
 import Tilt from "./Tilt";
 import { AirVisual, FloodVisual, GraphLegend, GraphVisual, Window } from "./ProductVisuals";
+import { HurricaneVisual, WildfireVisual } from "./HazardVisuals";
 
 type Product = {
   id: string;
@@ -18,6 +19,8 @@ type Product = {
   primary: { label: string; href: string };
   secondary: { label: string; href: string; external?: boolean };
   badge?: string;
+  /** scope and provenance caveat, shown under the preview */
+  note?: string;
   windowTitle: string;
   windowBadge: string;
   visual: ReactNode;
@@ -84,6 +87,64 @@ const products: Product[] = [
     visual: <FloodVisual />,
     chips: [
       { text: "POST /v1/vulnerability", sub: "damage distribution · confidence", pos: "-right-3 sm:-right-8 top-[14%]", z: 90 },
+    ],
+  },
+  {
+    id: "wildfirevuln",
+    accent: "var(--wildfire)",
+    glow: "rgba(255,106,61,0.5)",
+    category: "Climate risk intelligence · Insurers & lenders",
+    name: "WildfireVuln",
+    tagline: "The fire matters more than the house. We price both.",
+    body: "The probability a structure is destroyed once fire reaches its neighbourhood — for homes and commercial collateral — with mitigation credits graded by how well the post-fire evidence actually supports them. Calibrated on the CAL FIRE Damage Inspection record.",
+    points: [
+      "Graded mitigation credits: 8 of 21 feature levels are supported, the rest earn nothing",
+      "Survey leakage removed — an “unknown” field never carries the outcome",
+      "Live updating: after 25 inspections, predictions for the rest of the fire sharpen",
+      "Commercial collateral scored with its own feature effects, sharing each fire's severity",
+    ],
+    stats: [
+      { v: "83,900", k: "inspected structures, homes and commercial" },
+      { v: "351", k: "fires, 2018 – 2025" },
+      { v: "26 of 31", k: "withheld fires inside the 80% range" },
+    ],
+    primary: { label: "Open WildfireVuln", href: "https://alanhuang116.github.io/wildfirevuln/" },
+    secondary: { label: "Request a pilot", href: "#contact" },
+    note: "Live model, same coefficients as the portal. California only; conditional on fire reaching the neighbourhood. Independent analysis, not affiliated with CAL FIRE.",
+    windowTitle: "WildfireVuln — single home",
+    windowBadge: "Live model",
+    visual: <WildfireVisual />,
+    chips: [
+      { text: "8 of 21 credits supported", sub: "graded on post-fire evidence", pos: "left-[14%] top-[19%]", z: 90 },
+    ],
+  },
+  {
+    id: "hurricanevuln",
+    accent: "var(--hurricane)",
+    glow: "rgba(90,169,255,0.5)",
+    category: "Climate risk intelligence · Insurers & lenders",
+    name: "HurricaneVuln",
+    tagline: "Building-level hurricane vulnerability, tested on storms it never saw.",
+    body: "Two models, each validated on data it was not fitted to. Fragility answers whether a building will be damaged or destroyed at a given wind. Household loss estimates the repair cost FEMA verifies when a home is damaged.",
+    points: [
+      "Fragility fitted to buildings across Hurricane Michael's FEMA-assessed footprint",
+      "Household loss validated leave-one-storm-out across 19 storms, 2016 – 2024",
+      "Wind at each building from a Holland profile scaled to the NOAA best track",
+      "Only evidence-supported factors enter, such as 2010 – 2018 Florida Building Code construction",
+    ],
+    stats: [
+      { v: "130,744", k: "buildings behind the fragility curves" },
+      { v: "888,168", k: "inspected homes behind the loss model" },
+      { v: "15 of 19", k: "storms inside the 80% range" },
+    ],
+    primary: { label: "Open HurricaneVuln", href: "https://alanhuang116.github.io/hurricanevuln/" },
+    secondary: { label: "Request a pilot", href: "#contact" },
+    note: "Live model, same coefficients as the portal. Fragility rests on one storm and the Florida Panhandle / south-west Georgia building stock. Independent analysis, not endorsed by NOAA, FEMA or USACE.",
+    windowTitle: "HurricaneVuln — fragility",
+    windowBadge: "Live model",
+    visual: <HurricaneVisual />,
+    chips: [
+      { text: "Tested on unseen map tiles", sub: "damage AUC 0.71, spatial hold-out", pos: "left-[15%] top-[23%]", z: 90 },
     ],
   },
   {
@@ -179,7 +240,8 @@ function ProductBlock({ p, flip }: { p: Product; flip: boolean }) {
             </div>
           </div>
 
-          <Tilt className={`min-w-0 ${flip ? "lg:order-1" : ""}`} max={6}>
+          <div className={`min-w-0 ${flip ? "lg:order-1" : ""}`}>
+          <Tilt max={6}>
             <div style={{ transformStyle: "preserve-3d" }} className="relative">
               <Window title={p.windowTitle} glow={p.glow} badge={p.windowBadge}>{p.visual}</Window>
               {p.chips.map((c) => (
@@ -190,6 +252,8 @@ function ProductBlock({ p, flip }: { p: Product; flip: boolean }) {
               ))}
             </div>
           </Tilt>
+          {p.note && <p className="mt-7 mx-auto max-w-[56ch] text-center text-[11.5px] leading-relaxed text-ink-3">{p.note}</p>}
+          </div>
         </div>
       </article>
     </Reveal>
@@ -202,7 +266,7 @@ export default function Products() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         <Reveal className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 px-2">
           <span className="eyebrow text-ink-3">Products</span>
-          <h2 className="headline mt-5 text-[clamp(36px,5.6vw,72px)] text-silver">Three products. One way of thinking.</h2>
+          <h2 className="headline mt-5 text-[clamp(36px,5.6vw,72px)] text-silver">Five products. One way of thinking.</h2>
           <p className="mt-6 text-[clamp(17px,1.6vw,20px)] leading-relaxed text-ink-2">
             Each one takes messy real-world evidence, reasons over it with AI, and hands back an answer with its uncertainty attached.
           </p>
