@@ -80,7 +80,7 @@ const products: Product[] = [
       { v: "4,483", k: "archetype × region units calibrated" },
       { v: "270", k: "published curve points harmonized" },
     ],
-    primary: { label: "Explore FloodVuln", href: "https://claude.ai/code/artifact/c6c2864e-28fc-4c15-ac57-f6cb2e50c93f" },
+    primary: { label: "Explore FloodVuln", href: "https://alanhuang116.github.io/floodvuln/" },
     secondary: { label: "Request a pilot", href: "#contact" },
     windowTitle: "FloodVuln Engine — single risk",
     windowBadge: "Live model",
