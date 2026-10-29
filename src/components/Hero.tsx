@@ -4,6 +4,7 @@ import { animate, motion, useInView, useMotionValue, useReducedMotion, useScroll
 import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import { HurricaneVisual, WildfireVisual } from "./HazardVisuals";
 import { AirVisual, FloodVisual, GraphLegend, GraphVisual, Window } from "./ProductVisuals";
+import { FloodTwinVisual } from "./FloodTwinVisual";
 
 const ease = [0.2, 0.8, 0.2, 1] as const;
 
@@ -28,7 +29,7 @@ const panels: Panel[] = [
     accent: "var(--research)",
     title: "Research Architect — influence graph",
     glow: "rgba(139,123,255,0.6)",
-    badge: "Co-reasoning",
+    badge: "Co-Reasoning",
     visual: (
       <>
         <GraphVisual />
@@ -38,14 +39,14 @@ const panels: Panel[] = [
     chips: (
       <>
         <div className="chip-3d floaty absolute -left-16 bottom-[22%] rounded-2xl px-4 py-3" style={{ transform: "translateZ(90px)" }}>
-          <span className="block text-[9px] font-mono uppercase tracking-widest text-ink-3">Data coverage</span>
+          <span className="block text-[10px] font-mono text-ink-3">Data Coverage</span>
           <span className="flex items-center gap-2 mt-1.5">
             <span className="w-24 h-1.5 rounded-full bg-white/10 overflow-hidden"><i className="block h-full w-[72%] rounded-full bg-gradient-to-r from-[#6d8bff] to-[#b78bff]" /></span>
             <span className="text-[13px] font-semibold text-white tabular-nums">5 / 7</span>
           </span>
         </div>
         <div className="chip-3d floaty-2 absolute -right-24 -top-[7%] rounded-2xl px-4 py-3 max-w-[210px]" style={{ transform: "translateZ(120px)" }}>
-          <span className="flex items-center gap-1.5 text-[9px] font-mono uppercase tracking-widest text-[#b9aeff]">
+          <span className="flex items-center gap-1.5 text-[10px] font-mono text-[#b9aeff]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#8b7bff] breathe" />Hypothesis H1
           </span>
           <span className="block mt-1.5 text-[12.5px] leading-snug text-white/90">Canopy loss raises night-time temperature — testable with current data.</span>
@@ -59,9 +60,19 @@ const panels: Panel[] = [
     accent: "var(--flood)",
     title: "FloodVuln Global — single risk",
     glow: "rgba(45,212,191,0.5)",
-    badge: "Live model",
+    badge: "Live Model",
     visual: <FloodVisual interactive={false} />,
     chips: <Chip pos="-right-20 top-[12%]" z={110} title="POST /v1/vulnerability" sub="damage distribution · confidence" />,
+  },
+  {
+    id: "floodtwin",
+    name: "FloodTwin",
+    accent: "var(--twin)",
+    title: "FloodTwin — Hurricane Sandy, Hoboken",
+    glow: "rgba(56,200,240,0.5)",
+    badge: "Sandy Replay",
+    visual: <FloodTwinVisual interactive={false} />,
+    chips: <Chip pos="-right-20 top-[16%]" z={110} title="4 m shallow-water model" sub="0.17 m error at Sandy's high-water marks" />,
   },
   {
     id: "wildfirevuln",
@@ -69,7 +80,7 @@ const panels: Panel[] = [
     accent: "var(--wildfire)",
     title: "WildfireVuln — single home",
     glow: "rgba(255,106,61,0.5)",
-    badge: "Live model",
+    badge: "Live Model",
     visual: <WildfireVisual interactive={false} />,
     chips: <Chip pos="-left-20 top-[20%]" z={110} title="8 of 21 credits supported" sub="graded on post-fire evidence" />,
   },
@@ -79,7 +90,7 @@ const panels: Panel[] = [
     accent: "var(--hurricane)",
     title: "HurricaneVuln — fragility",
     glow: "rgba(90,169,255,0.5)",
-    badge: "Live model",
+    badge: "Live Model",
     visual: <HurricaneVisual interactive={false} />,
     chips: <Chip pos="-left-20 top-[24%]" z={110} title="Tested on unseen map tiles" sub="damage AUC 0.71, spatial hold-out" />,
   },
@@ -190,7 +201,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.15, ease }}
           className="chip-3d inline-flex items-center gap-2.5 h-9 pl-3 pr-4 mb-7 rounded-full text-[13px] text-white/85 hover:text-white transition-colors"
         >
-          <span className="px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wide uppercase text-black bg-gradient-to-r from-[#22d3ee] to-[#8b5cf6]">New</span>
+          <span className="px-2 py-0.5 rounded-full text-[11px] font-semibold text-black bg-gradient-to-r from-[#22d3ee] to-[#8b5cf6]">New</span>
           Research Architect is live
           <span aria-hidden className="text-white/40">→</span>
         </motion.a>

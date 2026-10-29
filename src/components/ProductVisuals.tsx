@@ -25,7 +25,7 @@ export function Window({
         <span className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
         <span className="ml-3 text-[11px] text-ink-2 font-medium tracking-tight truncate">{title}</span>
         {badge && (
-          <span className="ml-auto hidden sm:flex flex-shrink-0 items-center gap-1.5 text-[10px] font-mono uppercase tracking-widest text-ink-3">
+          <span className="ml-auto hidden sm:flex flex-shrink-0 items-center gap-1.5 text-[11px] font-mono text-ink-3">
             <span className="w-1.5 h-1.5 rounded-full breathe" style={{ background: glow }} />
             {badge}
           </span>
@@ -221,7 +221,7 @@ export function FloodVisual({ interactive = true }: { interactive?: boolean }) {
 
       {interactive && (
         <div className="flex items-center gap-4 px-5 pt-1 pb-3">
-          <label htmlFor="fv-depth" className="text-[10px] font-mono uppercase tracking-widest text-ink-3">Depth</label>
+          <label htmlFor="fv-depth" className="text-[11px] font-mono text-ink-3">Depth</label>
           <input
             id="fv-depth"
             type="range"
@@ -244,7 +244,7 @@ export function FloodVisual({ interactive = true }: { interactive?: boolean }) {
           { k: "Grade", v: "G3", c: "text-[#ffb340]" },
         ].map((r) => (
           <div key={r.k} className="px-4 py-3 border-r border-white/[0.07] last:border-r-0">
-            <span className="block text-[9px] font-mono uppercase tracking-widest text-ink-3 mb-1">{r.k}</span>
+            <span className="block text-[10px] font-mono text-ink-3 mb-1">{r.k}</span>
             <span className={`block text-[15px] sm:text-lg font-semibold tracking-tight tabular-nums ${r.c}`}>{r.v}</span>
           </div>
         ))}
@@ -343,7 +343,7 @@ export function AirVisual() {
         </div>
 
         <div>
-          <span className="block text-[9px] font-mono uppercase tracking-widest text-ink-3 mb-2">Seasonal cycle</span>
+          <span className="block text-[10px] font-mono text-ink-3 mb-2">Seasonal Cycle</span>
           <div className="flex items-end gap-[3px] h-14">
             {SEASON.map((v, i) => (
               <span key={i} className="flex-1 rounded-t-[2px]" style={{ height: `${v * 100}%`, background: ramp(v * 0.95), opacity: 0.9 }} />

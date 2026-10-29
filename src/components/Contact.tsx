@@ -66,10 +66,10 @@ export default function Contact() {
               {[
                 { k: "Email", v: "info@entanglix.tech", href: "mailto:info@entanglix.tech" },
                 { k: "Web", v: "entanglix.tech", href: "https://entanglix.tech" },
-                { k: "Based in", v: "Atlanta, Georgia, USA", href: null },
+                { k: "Based In", v: "Atlanta, Georgia, USA", href: null },
               ].map((item) => (
                 <div key={item.k} className="flex items-baseline gap-6 border-t border-white/[0.08] pt-5">
-                  <dt className="w-20 text-[12px] font-mono uppercase tracking-widest text-ink-3">{item.k}</dt>
+                  <dt className="w-20 text-[13px] font-mono text-ink-3">{item.k}</dt>
                   <dd className="text-[17px] text-white tracking-[-0.01em]">
                     {item.href ? <a href={item.href} className="hover:text-[#7da2ff] transition-colors">{item.v}</a> : item.v}
                   </dd>
@@ -168,6 +168,7 @@ export default function Contact() {
                             <option>General enquiry</option>
                             <option>Research Architect</option>
                             <option>FloodVuln Global</option>
+                            <option>FloodTwin</option>
                             <option>WildfireVuln</option>
                             <option>HurricaneVuln</option>
                             <option>GH-PM25 Observatory</option>

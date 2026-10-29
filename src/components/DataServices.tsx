@@ -21,7 +21,7 @@ export default function DataServices() {
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
           <div className="px-2 min-w-0">
             <Reveal>
-              <span className="eyebrow text-ink-3">Data services</span>
+              <span className="eyebrow text-ink-3">Data Services</span>
               <h2 className="headline mt-5 text-[clamp(36px,5vw,64px)] text-silver">Delivered the way your team already works.</h2>
               <p className="mt-6 text-[clamp(17px,1.6vw,20px)] leading-relaxed text-ink-2 max-w-[54ch]">
                 Subscribe to an app, pull from an API, or have us stand up a data service for your region and your risk.

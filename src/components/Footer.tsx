@@ -6,6 +6,7 @@ const cols = [
     links: [
       { label: "Research Architect", href: "https://researcharchitect.ai/" },
       { label: "FloodVuln Global", href: "https://alanhuang116.github.io/floodvuln/" },
+      { label: "FloodTwin", href: "https://alanhuang116.github.io/floodtwin/" },
       { label: "WildfireVuln", href: "https://alanhuang116.github.io/wildfirevuln/" },
       { label: "HurricaneVuln", href: "https://alanhuang116.github.io/hurricanevuln/" },
       { label: "GH-PM25 Observatory", href: "https://alanhuang116.github.io/ghana-pm25/" },

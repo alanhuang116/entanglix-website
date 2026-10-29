@@ -16,6 +16,7 @@
   --air: #ffb340;
   --wildfire: #ff6a3d;
   --hurricane: #5aa9ff;
+  --twin: #38c8f0;
 }
 
 @theme inline {
@@ -61,10 +62,9 @@ body {
   text-wrap: balance;
 }
 .eyebrow {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 .text-brand {
   background: linear-gradient(100deg, var(--brand-1) 0%, var(--brand-2) 45%, var(--brand-3) 100%);

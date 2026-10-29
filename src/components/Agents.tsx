@@ -6,7 +6,7 @@ import Tilt from "./Tilt";
 const agents = [
   {
     name: "Hypothesis Architect",
-    role: "Frames the question",
+    role: "Frames the Question",
     text: "Turns a research question into an influence graph, then proposes hypotheses the graph and the data can actually support.",
     product: "Research Architect",
     color: "var(--research)",
@@ -15,7 +15,7 @@ const agents = [
   },
   {
     name: "Literature Scout",
-    role: "Grounds every edge",
+    role: "Grounds Every Edge",
     text: "Finds what the literature supports, what it contests, and where it is silent.",
     product: "Research Architect",
     color: "var(--research)",
@@ -24,7 +24,7 @@ const agents = [
   },
   {
     name: "Coverage Auditor",
-    role: "Checks scope against data",
+    role: "Checks Scope Against Data",
     text: "Tells you what your study can detect, what your data can measure — and what got left out.",
     product: "Research Architect",
     color: "var(--research)",
@@ -33,7 +33,7 @@ const agents = [
   },
   {
     name: "Vulnerability Engine",
-    role: "Prices physical damage",
+    role: "Prices Physical Damage",
     text: "Converts flood depth into a calibrated damage distribution for any archetype and region, and flags out-of-domain requests instead of guessing.",
     product: "FloodVuln Global",
     color: "var(--flood)",
@@ -42,7 +42,7 @@ const agents = [
   },
   {
     name: "Local Calibrator",
-    role: "Learns from ten observations",
+    role: "Learns From Ten Observations",
     text: "Updates global priors with sparse local claims and structured expert evidence — by exactly as much as it should.",
     product: "FloodVuln Global",
     color: "var(--flood)",
@@ -51,7 +51,7 @@ const agents = [
   },
   {
     name: "Exposure Mapper",
-    role: "Fills the gaps between monitors",
+    role: "Fills the Gaps Between Monitors",
     text: "Fuses satellite, reanalysis and ground sensors into a daily 1-km pollution surface with prediction intervals.",
     product: "GH-PM25 Observatory",
     color: "var(--air)",
@@ -66,7 +66,7 @@ export default function Agents() {
       <div className="aurora animate-drift-slow w-[800px] h-[800px] top-20 left-1/2 -translate-x-1/2 bg-[#4f7cff]/10" aria-hidden />
       <div className="relative max-w-[1180px] mx-auto px-4 sm:px-6">
         <Reveal className="text-center max-w-3xl mx-auto mb-16 sm:mb-20 px-2">
-          <span className="eyebrow text-ink-3">Agent collection</span>
+          <span className="eyebrow text-ink-3">Agent Collection</span>
           <h2 className="headline mt-5 text-[clamp(36px,5.6vw,72px)] text-silver">Agents that know what they don&apos;t know.</h2>
           <p className="mt-6 text-[clamp(17px,1.6vw,20px)] leading-relaxed text-ink-2">
             AI agents should not propose blindly, grow overconfident on incomplete evidence, or abandon good ideas too early.
@@ -92,7 +92,7 @@ export default function Agents() {
                     </svg>
                   </div>
                   <div className="relative mt-10">
-                    <span className="text-[11px] font-mono uppercase tracking-widest" style={{ color: a.color }}>{a.role}</span>
+                    <span className="text-[12px] font-mono" style={{ color: a.color }}>{a.role}</span>
                     <h3 className="mt-2 text-[22px] font-semibold tracking-[-0.025em] text-white">{a.name}</h3>
                     <p className="mt-2.5 text-[14.5px] leading-relaxed text-ink-2 max-w-[46ch]">{a.text}</p>
                     <span className="inline-block mt-5 text-[11.5px] text-ink-3">Runs inside {a.product}</span>

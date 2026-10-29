@@ -97,7 +97,7 @@ function Readouts({ cells }: { cells: { k: string; ks: string; v: string; color:
     <div className="grid grid-cols-4 border-t border-white/[0.07]">
       {cells.map((c) => (
         <div key={c.k} className="px-2.5 sm:px-4 py-3 border-r border-white/[0.07] last:border-r-0 min-w-0">
-          <span className="block text-[9px] font-mono uppercase tracking-wide sm:tracking-widest text-ink-3 mb-1 whitespace-nowrap">
+          <span className="block text-[10px] font-mono text-ink-3 mb-1 whitespace-nowrap">
             <span className="sm:hidden">{c.ks}</span>
             <span className="hidden sm:inline">{c.k}</span>
           </span>
@@ -258,7 +258,7 @@ export function WildfireVisual({ interactive = true }: { interactive?: boolean }
       {interactive && (
       <div className="px-4 sm:px-5 pb-3 space-y-3">
         <div className="flex items-center gap-4">
-          <label htmlFor={`wf-fire-${uid}`} className="text-[10px] font-mono uppercase tracking-widest text-ink-3">Fire</label>
+          <label htmlFor={`wf-fire-${uid}`} className="text-[11px] font-mono text-ink-3">Fire</label>
           <input
             id={`wf-fire-${uid}`}
             type="range"
@@ -284,10 +284,10 @@ export function WildfireVisual({ interactive = true }: { interactive?: boolean }
 
       <Readouts
         cells={[
-          { k: "This fire", ks: "This fire", v: pct(pHere), color: EMBER },
-          { k: "New fire", ks: "New fire", v: pct(pNew), color: "#fff" },
-          { k: "Mild – severe", ks: "Range", v: `${Math.round(wildfireAtFire(eta, U_MILD) * 100)}–${Math.round(wildfireAtFire(eta, U_SEVERE) * 100)}%`, color: "#fff" },
-          { k: "vs. baseline", ks: "vs. base", v: delta === 0 ? "—" : `${delta > 0 ? "+" : "−"}${Math.abs(delta)} pts`, color: delta < 0 ? "#34d399" : delta > 0 ? "#f87171" : "#6e6e73" },
+          { k: "This Fire", ks: "This Fire", v: pct(pHere), color: EMBER },
+          { k: "New Fire", ks: "New Fire", v: pct(pNew), color: "#fff" },
+          { k: "Mild – Severe", ks: "Range", v: `${Math.round(wildfireAtFire(eta, U_MILD) * 100)}–${Math.round(wildfireAtFire(eta, U_SEVERE) * 100)}%`, color: "#fff" },
+          { k: "vs. Baseline", ks: "vs. Base", v: delta === 0 ? "—" : `${delta > 0 ? "+" : "−"}${Math.abs(delta)} pts`, color: delta < 0 ? "#34d399" : delta > 0 ? "#f87171" : "#6e6e73" },
         ]}
       />
     </div>
@@ -432,7 +432,7 @@ export function HurricaneVisual({ interactive = true }: { interactive?: boolean 
       {interactive && (
       <div className="px-4 sm:px-5 pb-3 space-y-3">
         <div className="flex items-center gap-4">
-          <label htmlFor={`hu-wind-${uid}`} className="text-[10px] font-mono uppercase tracking-widest text-ink-3">Wind</label>
+          <label htmlFor={`hu-wind-${uid}`} className="text-[11px] font-mono text-ink-3">Wind</label>
           <input
             id={`hu-wind-${uid}`}
             type="range"
@@ -460,7 +460,7 @@ export function HurricaneVisual({ interactive = true }: { interactive?: boolean 
         cells={[
           { k: "P(damaged)", ks: "Damaged", v: pct(here.any), color: SKY },
           { k: "P(destroyed)", ks: "Destroyed", v: pct(here.des), color: ROSE },
-          { k: "80% range", ks: "80% range", v: `${Math.round(here.lo * 100)}–${Math.round(here.hi * 100)}%`, color: "#fff" },
+          { k: "80% Range", ks: "80% Range", v: `${Math.round(here.lo * 100)}–${Math.round(here.hi * 100)}%`, color: "#fff" },
           { k: outside ? "Extrapolated" : "Category", ks: outside ? "Extrap." : "Category", v: cat > 0 ? `Cat ${cat}` : "TS", color: outside ? "#6e6e73" : "#ffb340" },
         ]}
       />

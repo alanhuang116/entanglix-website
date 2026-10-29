@@ -5,6 +5,7 @@ import Reveal from "./Reveal";
 import Tilt from "./Tilt";
 import { AirVisual, FloodVisual, GraphLegend, GraphVisual, Window } from "./ProductVisuals";
 import { HurricaneVisual, WildfireVisual } from "./HazardVisuals";
+import { FloodTwinVisual } from "./FloodTwinVisual";
 
 type Product = {
   id: string;
@@ -32,7 +33,7 @@ const products: Product[] = [
     id: "research-architect",
     accent: "var(--research)",
     glow: "rgba(139,123,255,0.55)",
-    category: "AI research copilot · SaaS",
+    category: "AI Research Copilot · SaaS",
     name: "Research Architect",
     tagline: "Design research, not just run it.",
     body: "The hardest part of research is rarely the analysis — it is deciding what to ask. Research Architect turns a question into an interactive influence graph you can argue with: a shared reasoning space where researchers and AI frame hypotheses together.",
@@ -49,7 +50,7 @@ const products: Product[] = [
     primary: { label: "Open the app", href: "https://app.researcharchitect.ai/" },
     secondary: { label: "researcharchitect.ai", href: "https://researcharchitect.ai/", external: true },
     windowTitle: "Research Architect — influence graph",
-    windowBadge: "Co-reasoning",
+    windowBadge: "Co-Reasoning",
     visual: (
       <>
         <GraphVisual />
@@ -65,7 +66,7 @@ const products: Product[] = [
     id: "floodvuln",
     accent: "var(--flood)",
     glow: "rgba(45,212,191,0.5)",
-    category: "Climate risk intelligence · Banks & insurers",
+    category: "Climate Risk Intelligence · Banks & Insurers",
     name: "FloodVuln Global",
     tagline: "Hazard models tell you where the water goes. We tell you what it does.",
     body: "A vendor-neutral vulnerability layer that converts flood depth into a full probability distribution of physical damage — specific to building archetype, geography and the local evidence you can actually produce. Bring depths from any hazard vendor; the vulnerability layer is the product.",
@@ -83,17 +84,46 @@ const products: Product[] = [
     primary: { label: "Explore FloodVuln", href: "https://alanhuang116.github.io/floodvuln/" },
     secondary: { label: "Request a pilot", href: "#contact" },
     windowTitle: "FloodVuln Engine — single risk",
-    windowBadge: "Live model",
+    windowBadge: "Live Model",
     visual: <FloodVisual />,
     chips: [
       { text: "POST /v1/vulnerability", sub: "damage distribution · confidence", pos: "-right-3 sm:-right-8 top-[14%]", z: 90 },
     ],
   },
   {
+    id: "floodtwin",
+    accent: "var(--twin)",
+    glow: "rgba(56,200,240,0.5)",
+    category: "Flood Simulation · Banks & Insurers",
+    name: "FloodTwin",
+    tagline: "Where the water goes, street by street, and what it costs.",
+    body: "A hydrodynamic flood model that runs on the graphics card in a web browser. It solves the shallow-water equations over lidar terrain and every building footprint on a 4 m grid, replays real storms or design events, tests defences, and prices the damage building by building with FloodVuln.",
+    points: [
+      "Storm surge, cloudbursts and compound events, every parameter open: surge peak, tide timing, sea level rise, NOAA Atlas 14 rainfall, drainage",
+      "Defences tested in minutes: a waterfront wall at any crest, barriers drawn on the map, pumps",
+      "Hurricane Sandy replay checked against 10 USGS high-water marks",
+      "Loss for every building and for an uploaded portfolio, with loan-to-value after the event",
+    ],
+    stats: [
+      { v: "940,992", k: "grid cells at 4 m, solved live on the GPU" },
+      { v: "13,152", k: "buildings with lidar-measured heights" },
+      { v: "0.17 m", k: "mean error at Sandy's high-water marks" },
+    ],
+    primary: { label: "Open FloodTwin", href: "https://alanhuang116.github.io/floodtwin/" },
+    secondary: { label: "Read the methodology", href: "https://alanhuang116.github.io/floodtwin/methodology.html", external: true },
+    note: "Frames from the model's Hurricane Sandy replay on the demo domain, Hoboken and Manhattan's West Side. Values from the National Structure Inventory, damage from FloodVuln. Runs best on a computer with a dedicated GPU.",
+    windowTitle: "FloodTwin — Hurricane Sandy, Hoboken",
+    windowBadge: "Sandy Replay",
+    visual: <FloodTwinVisual />,
+    chips: [
+      { text: "4 m shallow-water model", sub: "lidar terrain · 13,152 buildings", pos: "-right-3 sm:-right-8 top-[12%]", z: 90 },
+    ],
+  },
+  {
     id: "wildfirevuln",
     accent: "var(--wildfire)",
     glow: "rgba(255,106,61,0.5)",
-    category: "Climate risk intelligence · Insurers & lenders",
+    category: "Climate Risk Intelligence · Insurers & Lenders",
     name: "WildfireVuln",
     tagline: "The fire matters more than the house. We price both.",
     body: "The probability a structure is destroyed once fire reaches its neighbourhood — for homes and commercial collateral — with mitigation credits graded by how well the post-fire evidence actually supports them. Calibrated on the CAL FIRE Damage Inspection record.",
@@ -112,7 +142,7 @@ const products: Product[] = [
     secondary: { label: "Request a pilot", href: "#contact" },
     note: "Live model, same coefficients as the portal. California only; conditional on fire reaching the neighbourhood. Independent analysis, not affiliated with CAL FIRE.",
     windowTitle: "WildfireVuln — single home",
-    windowBadge: "Live model",
+    windowBadge: "Live Model",
     visual: <WildfireVisual />,
     chips: [
       { text: "8 of 21 credits supported", sub: "graded on post-fire evidence", pos: "left-[14%] top-[19%]", z: 90 },
@@ -122,7 +152,7 @@ const products: Product[] = [
     id: "hurricanevuln",
     accent: "var(--hurricane)",
     glow: "rgba(90,169,255,0.5)",
-    category: "Climate risk intelligence · Insurers & lenders",
+    category: "Climate Risk Intelligence · Insurers & Lenders",
     name: "HurricaneVuln",
     tagline: "Building-level hurricane vulnerability, tested on storms it never saw.",
     body: "Two models, each validated on data it was not fitted to. Fragility answers whether a building will be damaged or destroyed at a given wind. Household loss estimates the repair cost FEMA verifies when a home is damaged.",
@@ -141,7 +171,7 @@ const products: Product[] = [
     secondary: { label: "Request a pilot", href: "#contact" },
     note: "Live model, same coefficients as the portal. Fragility rests on one storm and the Florida Panhandle / south-west Georgia building stock. Independent analysis, not endorsed by NOAA, FEMA or USACE.",
     windowTitle: "HurricaneVuln — fragility",
-    windowBadge: "Live model",
+    windowBadge: "Live Model",
     visual: <HurricaneVisual />,
     chips: [
       { text: "Tested on unseen map tiles", sub: "damage AUC 0.71, spatial hold-out", pos: "left-[15%] top-[23%]", z: 90 },
@@ -151,7 +181,7 @@ const products: Product[] = [
     id: "gh-pm25",
     accent: "var(--air)",
     glow: "rgba(255,179,64,0.45)",
-    category: "Environmental data service · Public sector",
+    category: "Environmental Data Service · Public Sector",
     name: "GH-PM25 Observatory",
     tagline: "Daily 1-km fine particulate matter for Ghana.",
     body: "A national air-quality surface where ground monitors are sparse. We fuse satellite, reanalysis, land-use and population data with the monitor network to estimate PM2.5 for every square kilometre, every day — with honest uncertainty and direct comparison to health standards.",
@@ -266,7 +296,7 @@ export default function Products() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         <Reveal className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 px-2">
           <span className="eyebrow text-ink-3">Products</span>
-          <h2 className="headline mt-5 text-[clamp(36px,5.6vw,72px)] text-silver">Five products. One way of thinking.</h2>
+          <h2 className="headline mt-5 text-[clamp(36px,5.6vw,72px)] text-silver">Six products. One way of thinking.</h2>
           <p className="mt-6 text-[clamp(17px,1.6vw,20px)] leading-relaxed text-ink-2">
             Each one takes messy real-world evidence, reasons over it with AI, and hands back an answer with its uncertainty attached.
           </p>
