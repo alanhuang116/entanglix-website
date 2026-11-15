@@ -169,6 +169,7 @@ export default function Contact() {
                             <option>Research Architect</option>
                             <option>FloodVuln Global</option>
                             <option>FloodTwin</option>
+                            <option>FloodTwin NYC</option>
                             <option>WildfireVuln</option>
                             <option>HurricaneVuln</option>
                             <option>GH-PM25 Observatory</option>

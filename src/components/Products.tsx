@@ -6,6 +6,7 @@ import Tilt from "./Tilt";
 import { AirVisual, FloodVisual, GraphLegend, GraphVisual, Window } from "./ProductVisuals";
 import { HurricaneVisual, WildfireVisual } from "./HazardVisuals";
 import { FloodTwinVisual } from "./FloodTwinVisual";
+import { FloodTwinNYCVisual } from "./FloodTwinNYCVisual";
 
 type Product = {
   id: string;
@@ -117,6 +118,35 @@ const products: Product[] = [
     visual: <FloodTwinVisual />,
     chips: [
       { text: "4 m shallow-water model", sub: "lidar terrain · 13,152 buildings", pos: "-right-3 sm:-right-8 top-[12%]", z: 90 },
+    ],
+  },
+  {
+    id: "floodtwin-nyc",
+    accent: "var(--nyc)",
+    glow: "rgba(107,140,255,0.5)",
+    category: "City-Scale Flood Simulation · Cities, Banks & Insurers",
+    name: "FloodTwin NYC",
+    tagline: "All five boroughs, one storm at a time.",
+    body: "FloodTwin at the scale of a whole city. A shallow-water model of New York City runs on the graphics card in the browser, driven by four tide gauges around the harbour, floods 1.08 million buildings in 3D and prices the damage to each one. Replay Hurricane Sandy, add sea level rise, or test a cloudburst and a waterfront wall.",
+    points: [
+      "Hurricane Sandy replayed from four tide gauges and scored live against 158 USGS high-water marks",
+      "Sea level rise, nor'easters, the NYC stormwater scenarios, Hurricane Ida's rainfall and compound storms, every parameter open",
+      "Waterfront walls for any borough at any crest, and barriers drawn on the map",
+      "Losses for 730,000 valued buildings by borough and neighborhood, with subway stations and hospitals reached",
+    ],
+    stats: [
+      { v: "1.56M", k: "grid cells at 40 m, solved live on the GPU" },
+      { v: "1.08M", k: "buildings in 3D with measured heights" },
+      { v: "0.21 m", k: "mean error at Sandy's high-water marks in NYC" },
+    ],
+    primary: { label: "Open FloodTwin NYC", href: "https://alanhuang116.github.io/floodtwin-nyc/" },
+    secondary: { label: "Read the methodology", href: "https://alanhuang116.github.io/floodtwin-nyc/methodology.html", external: true },
+    note: "Frames from the model's Hurricane Sandy replay at 40 m across all five boroughs; losses are counted up to each frame. Values from the National Structure Inventory, damage from FloodVuln. The detail adapts to the graphics card.",
+    windowTitle: "FloodTwin NYC — Hurricane Sandy, five boroughs",
+    windowBadge: "City Scale",
+    visual: <FloodTwinNYCVisual />,
+    chips: [
+      { text: "1.08 million buildings in 3D", sub: "four tide gauges · 40 m grid", pos: "-right-3 sm:-right-8 top-[12%]", z: 90 },
     ],
   },
   {
@@ -296,7 +326,7 @@ export default function Products() {
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
         <Reveal className="text-center max-w-3xl mx-auto mb-16 sm:mb-24 px-2">
           <span className="eyebrow text-ink-3">Products</span>
-          <h2 className="headline mt-5 text-[clamp(36px,5.6vw,72px)] text-silver">Six products. One way of thinking.</h2>
+          <h2 className="headline mt-5 text-[clamp(36px,5.6vw,72px)] text-silver">Seven products. One way of thinking.</h2>
           <p className="mt-6 text-[clamp(17px,1.6vw,20px)] leading-relaxed text-ink-2">
             Each one takes messy real-world evidence, reasons over it with AI, and hands back an answer with its uncertainty attached.
           </p>

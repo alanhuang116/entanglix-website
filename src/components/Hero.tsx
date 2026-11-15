@@ -5,6 +5,7 @@ import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "re
 import { HurricaneVisual, WildfireVisual } from "./HazardVisuals";
 import { AirVisual, FloodVisual, GraphLegend, GraphVisual, Window } from "./ProductVisuals";
 import { FloodTwinVisual } from "./FloodTwinVisual";
+import { FloodTwinNYCVisual } from "./FloodTwinNYCVisual";
 
 const ease = [0.2, 0.8, 0.2, 1] as const;
 
@@ -73,6 +74,16 @@ const panels: Panel[] = [
     badge: "Sandy Replay",
     visual: <FloodTwinVisual interactive={false} />,
     chips: <Chip pos="-right-20 top-[16%]" z={110} title="4 m shallow-water model" sub="0.17 m error at Sandy's high-water marks" />,
+  },
+  {
+    id: "floodtwin-nyc",
+    name: "FloodTwin NYC",
+    accent: "var(--nyc)",
+    title: "FloodTwin NYC — Hurricane Sandy, five boroughs",
+    glow: "rgba(107,140,255,0.5)",
+    badge: "City Scale",
+    visual: <FloodTwinNYCVisual interactive={false} />,
+    chips: <Chip pos="-left-20 top-[18%]" z={110} title="1.08 million buildings in 3D" sub="all five boroughs, four tide gauges" />,
   },
   {
     id: "wildfirevuln",
